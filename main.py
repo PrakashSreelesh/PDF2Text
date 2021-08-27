@@ -13,7 +13,8 @@ def pdffile_convert(name):
         image_counter += 1
     print(type(pages))
     filelimit = image_counter - 1
-    outfile = PDF_file.replace('.pdf', '.txt')
+    # outfile = PDF_file.replace('.pdf', '.txt')
+    outfile = "test.txt"
     with open(outfile, "w") as f:
         for i in range(1, filelimit + 1):
             filename = "page_" + str(i) + ".jpg"
