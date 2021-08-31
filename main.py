@@ -11,15 +11,14 @@ def pdffile_convert(name):
         filename = "page_"+str(image_counter)+".jpg"
         page.save(filename, 'JPEG')
         image_counter += 1
-    print(type(pages))
+
     filelimit = image_counter - 1
-    # outfile = PDF_file.replace('.pdf', '.txt')
-    outfile = "test.txt"
+    outfile = PDF_file.replace('.pdf', '.txt')
+
     with open(outfile, "w") as f:
         for i in range(1, filelimit + 1):
-            filename = "page_" + str(i) + ".jpg"
-            pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-            text = str(((pytesseract.image_to_string(Image.open(filename)))))
+            filename = Image.open("page_" + str(i) + ".jpg")
+            text = str(pytesseract.image_to_string(filename, lang='eng'))
             text = text.replace('-\n', '')
             f.write(text)
 

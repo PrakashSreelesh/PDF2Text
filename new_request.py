@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, request
 from werkzeug.utils import secure_filename
 from werkzeug.datastructures import FileStorage
 
